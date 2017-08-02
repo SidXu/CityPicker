@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="activity"
+            type="com.sid.citypicker.picker.CityFilterActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/app_title_view"
+            app:handler="@{activity}"
+            app:titleBean="@{activity.titleBean}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="provinceClick"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="@{activity.provinceShow}"
+                android:textColor="@color/background_blue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_hierarchy"
+                android:drawablePadding="10dp"
+                android:onClick="cityClick"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="@{activity.cityShow}"
+                android:textColor="@color/background_blue"
+                android:textSize="16sp"
+                android:visibility="@{activity.isCityShow? View.VISIBLE : View.INVISIBLE}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableStart="@mipmap/icon_hierarchy"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:text="@{activity.areaShow}"
+                android:textColor="@color/background_blue"
+                android:textSize="16sp"
+                android:visibility="@{activity.isAreaShow? View.VISIBLE : View.INVISIBLE}" />
+
+        </LinearLayout>
+
+        <com.sid.citypicker.widget.NoScrollViewPager
+            android:id="@+id/city_filter_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:noScroll="@{false}" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.sid.citypicker.bean.FilterBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{bean.isSelected? @drawable/selected_shape : @drawable/normal_shape}"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/filter_item_height"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/image_text_space"
+            android:text="@{bean.name}"
+            android:textColor="@{bean.isSelected? @color/white : @color/filter_normal_text}"
+            android:textSize="14sp" />
+    </LinearLayout>
+</layout>
